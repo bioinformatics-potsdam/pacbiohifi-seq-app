@@ -21,7 +21,7 @@ cd pacbiohifi-seq-app
 # provide the parameters and run as 
 python pacbiohifi-seq-app.py
 - a dashboard will be build for the complete analysis.
-
+```
 
 - **To do tomorrow: add the path declaration, parameters settings, add the bins and check for the release version.**
 

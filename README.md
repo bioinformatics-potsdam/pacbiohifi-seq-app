@@ -22,7 +22,7 @@ cd pacbiohifi-seq-app
 python pacbiohifi-seq-app.py
 - a dashboard will be build for the complete analysis.
 ```
-
+- You can also host on tapyr template [template](https://github.com/Appsilon/tapyr-template)
 - **To do tomorrow: add the path declaration, parameters settings, add the bins and check for the release version.**
 
 Gaurav \

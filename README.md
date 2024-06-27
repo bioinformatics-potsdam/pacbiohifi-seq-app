@@ -13,7 +13,17 @@ pip install shinywidgets
 pip install shinylive
 pip install shinyswatch
 ```
-- **To Do tomorrow: add the path declaration, parameters settings, add the bins and check for the release version.**
+- to use
+```
+git clone https://github.com/gauravcodepro/pacbiohifi-seq-app.git
+cd pacbiohifi-seq-app
+# put the fastq reads files there.
+# provide the parameters and run as 
+python pacbiohifi-seq-app.py
+- a dashboard will be build for the complete analysis.
+
+
+- **To do tomorrow: add the path declaration, parameters settings, add the bins and check for the release version.**
 
 Gaurav \
 Academic Staff Member \

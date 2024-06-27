@@ -17,10 +17,9 @@ pip install shinyswatch
 ```
 git clone https://github.com/gauravcodepro/pacbiohifi-seq-app.git
 cd pacbiohifi-seq-app
-# put the fastq reads files there.
-# provide the parameters and run as 
+# put the fastq reads files there. provide the parameters and run as 
 python pacbiohifi-seq-app.py
-- a dashboard will be build for the complete analysis.
+- a dashboard will be build for the complete analysis including the name of the sequencing facility or center and the person
 ```
 - You can also host on tapyr template [template](https://github.com/Appsilon/tapyr-template)
 - **To do tomorrow: add the path declaration, parameters settings, add the bins and check for the release version.**

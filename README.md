@@ -18,7 +18,7 @@ pip install shinyswatch
 git clone https://github.com/gauravcodepro/pacbiohifi-seq-app.git
 cd pacbiohifi-seq-app
 # put the fastq reads files there. provide the parameters and run as 
-python pacbiohifi-seq-app.py
+shiny run pacbiohifi-seq-app.py app.py --reload
 - a dashboard will be build for the complete analysis including the
                   name of the sequencing facility or center and the person
 ```

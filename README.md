@@ -23,8 +23,7 @@ shiny run pacbiohifi-seq-app.py app.py --reload
                   name of the sequencing facility or center and the person
 ```
 - You can also host on tapyr template [template](https://github.com/Appsilon/tapyr-template)
-- **To do today: add the path declaration, parameters settings, add the bins and check for the release version.**
-- **To do today: add the support for the pdf export, add the support for the email dispatch.**
+- **To do today: bin according to the struger rule, add the pdf support**
 
 - if you want to add css using the shiny widgets. 
 

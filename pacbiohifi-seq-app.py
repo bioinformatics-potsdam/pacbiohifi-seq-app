@@ -6,6 +6,7 @@ from pathlib import Path
 import pandas as pd
 from shiny import reactive
 from shiny.express import render, ui
+import subprocess
 
 app_ui = ui.page_fixed(
     ui.h1("Sequencing service pacbiohifi read summarizer")
@@ -20,6 +21,7 @@ app_ui = ui.page_fixed(
         ui.output_dataframe("readdataframeaftercutoff")
         ui.output_plot("readplot")
         ui.output_text("writefasta")
+        ui.output_text("parsebam")
 )
 def server(input, output, session):
     @output
@@ -150,4 +152,15 @@ def server(input, output, session):
                 outfile.write(f">{fastaqheaders[i]}\n{fastasequences[i]}")
             filetowrite.close()
 
+     @output
+     @render.parsebam
+     infile = Path(__file__).parent / "reads.bam"
+     infilepbi = Path(__file__).parent / "reads.pbi"
+     oufile = Path(__file__).parent / "reads.fastq"
+     if infile and not infilepbi:
+         print(f"the pbi file are required for the read conversion")
+         return
+     if infile and infilepbi:
+         subprocess.run(["bam2fastq", infile, "-o", "reads.fastq"]
+                    
 app = App(app_ui, server)

@@ -7,21 +7,26 @@ import pandas as pd
 from shiny import reactive
 from shiny.express import render, ui
 
-ui.tags.link(href="https://www.uni-potsdam.de/typo3conf/ext/up_template/Resources/Public/Images/logos/up_logo_international_2.png", rel="stylesheet")
-
 app_ui = ui.page_fixed(
     ui.h1("Sequencing service pacbiohifi read summarizer")
     ui.h2("a single page application summary post pacbio hifi sequencing runs"),
         ui.markdown(" use the pacbiohifisequencing reads files and generate a single page deploayable summary"),
         ui.markdown("Developed by Gaurav Sablok, Academic Staff Member, Universitat Potsdam, Germany")
+        ui.output_image("image")
         ui.markdown("Sequencing sample done by ----------")
         ui.output_table("realengthbeforecutoff"),
         ui.output_table("readlengthaftercutoff")
         ui.output_dataframe("readdataframebeforecutoff")
         ui.output_dataframe("readdataframeaftercutoff")
         ui.output_plot("readplot")
+        ui.output_text("writefasta")
 )
 def server(input, output, session):
+    @output
+    @render.image
+    def image():
+           img: ImgData = {"src": "https://www.uni-potsdam.de/typo3conf/ext/up_template/Resources/Public/Images/logos/up_logo_international_2.png", "width": "100px"}
+        return img
     @output
     @render.dataframe
     def readdataframebeforecutoff():
@@ -126,5 +131,23 @@ def server(input, output, session):
         afterlengthdatalen = [i[1] for i in list(afterlengthcut.values())]
         afterdataframe = pd.concat([pd.DataFrame([afterlengthdatakeys], columns = ["headers"]), pd.DataFrame([afterlengthdataseq], columns = ["sequence"]), pd.DataFrame([afterlengthdatalen], columns = ["length"])], axis =1)
         return dataframeheaderslength.length.plot.bar(), afterdataframe.length.plot.bar()
+        
+    @output
+    @render.text
+    def writefasta():
+        infile = Path(__file__).parent / "reads.fastq"
+        fastqreads = {}
+        with open(infile) as fastqfile:
+        fastqread = fastqfile.readlines()
+        for line in range(len(fastqread)):
+            if fastqread[line].startswith("@"):
+                fastqreads[fastqread[line].strip().split()[0]] = fastqread[line+1]
+        fastqheaders = list(fastqreads.keys())
+        fastqsequences = list(fastqreads.values())
+        outfile = Path(__file__).parent / "sequencingreads.fasta"
+        with open(outfile, "w") as filetowrite:
+            for i in range(len(fastqheaders)):
+                outfile.write(f">{fastaqheaders[i]}\n{fastasequences[i]}")
+            filetowrite.close()
 
 app = App(app_ui, server)

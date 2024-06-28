@@ -26,8 +26,9 @@ shiny run pacbiohifi-seq-app.py app.py --reload
 - **To do today: add the path declaration, parameters settings, add the bins and check for the release version.**
 - **To do today: add the support for the pdf export, add the support for the email dispatch.**
 
-- if you want to add css
-  ```
+- if you want to add css using the shiny widgets. 
+
+```
   p { colour: red;}
 table.colour {
     colour: green;
@@ -48,6 +49,7 @@ read.colour {
     pixel = 100px;
 }
 ```
+
 Gaurav \
 Academic Staff Member \
 Bioinformatics \

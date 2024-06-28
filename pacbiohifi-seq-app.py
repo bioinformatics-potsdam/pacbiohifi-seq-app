@@ -6,6 +6,7 @@ from pathlib import Path
 import pandas as pd
 from shiny import reactive
 from shiny.express import render, ui
+from htmltools import HTML, div
 import subprocess
 
 app_ui = ui.page_fixed(
@@ -22,8 +23,13 @@ app_ui = ui.page_fixed(
         ui.output_plot("readplot")
         ui.output_text("writefasta")
         ui.output_text("parsebam")
+        ui.output_text("PacBiohifi")
 )
 def server(input, output, session):
+    @output
+    @render.text
+    def PacBiohifi():
+        div(HTML("<iframe src =  https://pacbiohifi.streamlit.app/ > PacbioHifi Streamlit </iframe>"))
     @output
     @render.image
     def image():

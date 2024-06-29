@@ -30,11 +30,13 @@ def server(input, output, session):
     @render.text
     def PacBiohifi():
         div(HTML("<iframe src =  https://pacbiohifi.streamlit.app/ > PacbioHifi Streamlit </iframe>"))
+   
     @output
     @render.image
     def image():
            img: ImgData = {"src": "https://www.uni-potsdam.de/typo3conf/ext/up_template/Resources/Public/Images/logos/up_logo_international_2.png", "width": "100px"}
         return img
+   
     @output
     @render.dataframe
     def readdataframebeforecutoff():
@@ -157,7 +159,7 @@ def server(input, output, session):
             for i in range(len(fastqheaders)):
                 outfile.write(f">{fastaqheaders[i]}\n{fastasequences[i]}")
             filetowrite.close()
-
+            
      @output
      @render.parsebam
      infile = Path(__file__).parent / "reads.bam"

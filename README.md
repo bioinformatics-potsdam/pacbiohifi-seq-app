@@ -1,7 +1,5 @@
 # pacbiohifi-seq-app
 
-< div align = "justify">
-
 - a single page shiny express pacbiohifi-seq-app for profiling of the pacbiohifi sequencing reads sequencing facility or startups.
 - shiny API reference is located at [pythonapi](https://shiny.posit.co/py/api/).
 - You can also host on tapyr template [template](https://github.com/Appsilon/tapyr-template)

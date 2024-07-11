@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # Author Gaurav
-# Universitat Potsdam
 # date 2024-6-27
 from pathlib import Path
 import pandas as pd
@@ -13,7 +12,7 @@ app_ui = ui.page_fixed(
     ui.h1("Sequencing service pacbiohifi read summarizer")
     ui.h2("a single page application summary post pacbio hifi sequencing runs"),
         ui.markdown(" use the pacbiohifisequencing reads files and generate a single page deploayable summary"),
-        ui.markdown("Developed by Gaurav Sablok, Academic Staff Member, Universitat Potsdam, Germany")
+        ui.markdown("Developed by Gaurav Sablok")
         ui.output_image("image")
         ui.markdown("Sequencing sample done by ----------")
         ui.output_table("realengthbeforecutoff"),

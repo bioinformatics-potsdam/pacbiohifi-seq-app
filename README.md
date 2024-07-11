@@ -23,10 +23,4 @@ shiny run pacbiohifi-seq-app.py app.py --reload
 ```
 - **To do today: bin according to the struger rule, bug check**
 
-Gaurav \
-Academic Staff Member \
-Bioinformatics \
-Institute for Biochemistry and Biology \
-University of Potsdam \
-Potsdam,Germany
-
+Gaurav 
